@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sprites/soap.png" type="Texture" id=1]
+[ext_resource path="res://sprites/jugadorScript.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "correr"
+length = 14.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("soap:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "parado"
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 28.7594, 41.215 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "parado"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("soap:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "salto"
+length = 3.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("soap:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 19 ]
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="soap" type="Sprite" parent="."]
+position = Vector2( -1.32223, -2.64505 )
+scale = Vector2( 0.0889708, 0.0727016 )
+texture = ExtResource( 1 )
+hframes = 21
+frame = 19
+
+[node name="correr" type="AnimationPlayer" parent="."]
+playback_speed = 16.0
+anims/correr = SubResource( 1 )
+anims/parado = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.31335, 3.13067 )
+shape = SubResource( 3 )
+
+[node name="parado" type="AnimationPlayer" parent="."]
+playback_speed = 2.5
+anims/parado = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="salto" type="AnimationPlayer" parent="."]
+playback_speed = 3.5
+anims/salto = SubResource( 5 )

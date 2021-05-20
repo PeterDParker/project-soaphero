@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fuentes/OriginTech personal use.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fondos/menu.png" type="Texture" id=2]
+[ext_resource path="res://fuentes/JoeJack.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/creditos.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+outline_color = Color( 0.894118, 0.866667, 0.866667, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="creditos" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="Sprite" parent="."]
+position = Vector2( 517.24, 513.151 )
+scale = Vector2( 0.823116, 0.827164 )
+texture = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.292
+anchor_right = 0.5
+anchor_bottom = 0.292
+margin_left = 294.822
+margin_top = 262.589
+margin_right = 981.822
+margin_bottom = 639.589
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 687.0
+margin_bottom = 285.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Equipo creativo de Parker studios:
+
+
+
+Manuel Gonzalez
+Adelina Lopez
+Jaqueline Perez
+Fernando Flores"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 25.154
+anchor_right = 25.154
+margin_left = -149.16
+margin_top = 32.0
+margin_right = 10.84
+margin_bottom = 84.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="regreso" type="Button" parent="VBoxContainer2"]
+margin_right = 160.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.141176, 0.388235, 0.909804, 1 )
+text = "ATRAS"
+flat = true
+[connection signal="pressed" from="VBoxContainer2/regreso" to="." method="_on_regreso_pressed"]
