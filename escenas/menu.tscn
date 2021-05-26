@@ -123,6 +123,7 @@ custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 text = "Parker Studios."
 flat = true
+
 [connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="HBoxContainer/creditos" to="." method="_on_creditos_pressed"]
