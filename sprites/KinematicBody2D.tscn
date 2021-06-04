@@ -24,7 +24,7 @@ tracks/0/keys = {
 resource_name = "parado"
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 20.4483, 41.215 )
+extents = Vector2( 21.9306, 38.4881 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "parado"
@@ -68,7 +68,7 @@ position = Vector2( -1.32223, -2.64505 )
 scale = Vector2( 0.0889708, 0.0727016 )
 texture = ExtResource( 1 )
 hframes = 21
-frame = 4
+frame = 18
 
 [node name="correr" type="AnimationPlayer" parent="."]
 playback_speed = 16.0
@@ -76,7 +76,7 @@ anims/correr = SubResource( 1 )
 anims/parado = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2.31335, 3.13067 )
+position = Vector2( -5.68074, 6.77867 )
 shape = SubResource( 3 )
 
 [node name="parado" type="AnimationPlayer" parent="."]
@@ -86,6 +86,11 @@ anims/parado = SubResource( 4 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -5.33936, -125.475 )
 current = true
+limit_left = -100000000
+limit_top = -100000000
+limit_right = 100000000
+smoothing_enabled = true
+smoothing_speed = 6.0
 
 [node name="salto" type="AnimationPlayer" parent="."]
 playback_speed = 3.5

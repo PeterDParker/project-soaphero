@@ -1,0 +1,3 @@
+player= 1
+enemy= 2
+tilemap= 3

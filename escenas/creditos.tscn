@@ -73,5 +73,4 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.141176, 0.388235, 0.909804, 1 )
 text = "ATRAS"
 flat = true
-
 [connection signal="pressed" from="VBoxContainer2/regreso" to="." method="_on_regreso_pressed"]

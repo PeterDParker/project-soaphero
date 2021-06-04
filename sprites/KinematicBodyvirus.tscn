@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/virus/virusSprite.png" type="Texture" id=1]
+[ext_resource path="res://sprites/ScriptVirus.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.3587, 20.1354 )
+
+[sub_resource type="Animation" id=2]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../KinematicBodyvirus/virus:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[node name="KinematicBodyvirus" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="virus" type="Sprite" parent="."]
+position = Vector2( 3.5132, -3.14976 )
+scale = Vector2( 0.284289, 0.267705 )
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
+
+[node name="floorDetection" type="RayCast2D" parent="virus"]
+position = Vector2( 90.366, 17.3894 )
+scale = Vector2( 1.75877, 1.86773 )
+enabled = true
+cast_to = Vector2( 0, 100 )
+collide_with_areas = true
+
+[node name="caminar" type="AnimationPlayer" parent="."]
+playback_speed = 2.0
+anims/caminar = SubResource( 2 )
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+position = Vector2( -0.117188, 0.078125 )
+enabled = true
+cast_to = Vector2( -25, 0 )
+
+[node name="RightRay" type="RayCast2D" parent="."]
+position = Vector2( 0.166855, 0.0417142 )
+enabled = true
+cast_to = Vector2( 25, 0 )
