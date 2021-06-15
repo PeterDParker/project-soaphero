@@ -28,6 +28,9 @@ func _next_to_right_wall() -> bool:
 
 func _floor_detection() -> bool:
 	return $virus/floorDetection.is_colliding()
+	
+func _top_detection() ->bool:
+	return $TopRay.is_colliding()
 
 func _flip():
 	motion.x *= -1
@@ -36,5 +39,10 @@ func _flip():
 func _move():
 	if _next_to_right_wall() or _next_to_left_wall() or !_floor_detection():
 		_flip()
-	pass
+	if _top_detection():
+		_dead_virus()
+		
+func _dead_virus():
+	hide()
+	$CollisionShape2D.disabled = true
 

@@ -54,3 +54,7 @@ cast_to = Vector2( -25, 0 )
 position = Vector2( 0.166855, 0.0417142 )
 enabled = true
 cast_to = Vector2( 25, 0 )
+
+[node name="TopRay" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -25 )

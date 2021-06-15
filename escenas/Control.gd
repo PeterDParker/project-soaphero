@@ -31,10 +31,11 @@ func _on_buttonInicio_pressed():
 func update_time():
 	get_tree().get_nodes_in_group("tiempo")[0].text = _format_minutes()
 
-
 func _on_Timer_timeout():
 	tiempo -= 1
 	update_time()
+	if tiempo <= 0:
+		get_tree().change_scene("res://escenas/ciudad.tscn")
 
 func _format_minutes():
 	var minutes = tiempo / 60

@@ -66,18 +66,31 @@ func _physics_process(delta):
 		if friction == true:
 			
 			motion.x = lerp(motion.x, 0, 0.01)
-	 
+			
+	_dead() 
+	
 	motion = move_and_slide(motion, UP)
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _golpe_right() -> bool:
+	return $RayRight.is_colliding()
+	
+func _golpe_left() -> bool:
+	return $RayLeft.is_colliding()
+	
+func _dead():
+	if _golpe_left() or _golpe_right():
+		_dead_personaje()
+		
+func _dead_personaje():
+	hide()
+	$CollisionShape2D.disabled = true
+	get_tree().change_scene("res")
+	
+	
+	
+	
+	
+	

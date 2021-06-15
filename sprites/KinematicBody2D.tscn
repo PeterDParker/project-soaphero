@@ -95,3 +95,13 @@ smoothing_speed = 6.0
 [node name="salto" type="AnimationPlayer" parent="."]
 playback_speed = 3.5
 anims/salto = SubResource( 5 )
+
+[node name="RayRight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 0
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -30, 0 )
+collision_mask = 0
